@@ -69,10 +69,12 @@ In order to build the application’s docker images, run the following script
 > Swagger UI can be accessed at http://localhost:8084/api/doc/swagger-ui/index.html
 - Client
 > Client can be accessed at http://localhost:8080
+
+## Pages
 - Home
-![Home](./images/ekran1.PNG)
+> ![Home](./images/ekran1.PNG)
 - Browsing History The Last Ten Products
-![History](./images/ekran2.PNG)
+> ![History](./images/ekran2.PNG)
 - Best Seller Products
-![Best Seller Products](./images/ekran3.PNG)
+> ![Best Seller Products](./images/ekran3.PNG)
 
