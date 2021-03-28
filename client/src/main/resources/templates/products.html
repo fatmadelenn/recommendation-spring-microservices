@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Recommendation-Client</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+</head>
+
+<body>
+
+<main>
+    <header>
+        <nav>
+            <div class="ui stackable large menu">
+                <a th:href="@{/}" class="header item">Recommendation-Client</a>
+                <div th:style="'text-align: center; width: 80%'">
+                    <div class="starter-template" style="margin-top:10px">
+                        <h1>Browsing History The Last Ten Products</h1>
+                    </div>
+                </div>
+                <div class="right menu">
+                    <div class="item">
+                        <a th:href="@{/}" class="ui orange button"><i class="refresh icon"></i>Back Home</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="ui text container">
+        <div class="ui purple segment" style="margin-top:10px">
+            <div id="productList" class="ui unstackable divided items">
+                <div class="description">
+                    <h2 th:text="${productList.userId}" th:style="'text-align: center'">Text</h2>
+                </div>
+                <div class="item" th:each="products : ${productList.products}">
+                    <div class="ui divider"></div>
+                    <div class="content">
+                        <div class="ui" th:text="'product-id: ' + ${products.productId}"></div>
+                        <div class="ui" th:text="'category-id: ' + ${products.categoryId}"></div>
+                    </div>
+                    <form action="#"
+                          th:action="@{/history/delete(userId=${productList.userId}, productId=${products.productId})}"
+                          th:method="delete">
+                        <button type="submit" class="ui red button">
+                            Delete From History
+                        </button>
+                    </form>
+                </div>
+                <div class="ui divider"></div>
+                <p th:text="'type: ' +${productList.type}"></p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.0/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+</body>
+</html>

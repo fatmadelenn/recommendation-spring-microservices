@@ -1,0 +1,34 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: stream-reader
+##------DB---------##
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/data-db
+    username: postgres
+    password: 123456
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+
+##------EUREKA---------##
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+
+##------KAFKA---------##
+recommendation:
+  kafka:
+    address: 127.0.0.1:9092 #kafka adress
+    topic: recommendation-topic
+    group:
+      id: recommendation-group

@@ -1,0 +1,31 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: ecommerce-api
+
+##------DB---------##
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/data-db
+    username: postgres
+    password: 123456
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+
+##------EUREKA---------##
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+
+springfox:
+  documentation:
+    swagger-ui.base-url: /api/doc

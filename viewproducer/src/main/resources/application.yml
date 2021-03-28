@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: view-producer
+server:
+  port: 8081
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+recommendation:
+  kafka:
+    address: 127.0.0.1:9092 #kafka adress
+    topic: recommendation-topic

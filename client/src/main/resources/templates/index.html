@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Recommendation-Client</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+</head>
+
+<body>
+
+<main>
+    <header>
+        <nav>
+            <div class="ui stackable large menu">
+                <a th:href="@{/}" class="header item">Recommendation-Client</a>
+                <div class="right menu">
+                    <div class="item">
+                        <a href="https://github.com/fatmadelenn" class="ui orange button">Fatma DELEN Github</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="ui text container">
+        <div class="ui purple segment centered" style="margin-top:10px">
+            <div id="productList" class="ui unstackable divided items">
+                <div class="item">
+                    <form th:action="@{/history}" modelAttribute="searchDto" th:object="${searchDto}" method="get"
+                          th:style="'width:100%;padding:15px'">
+                        <div class="ui action input" th:style="'width:100%'">
+                            <input placeholder="Enter user-id to list the last ten products viewed" type="text"
+                                   id="searchInput" th:field="*{userId}">
+                            <button class="ui orange icon button" type="submit">
+                                <i class="search icon"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="item">
+                    <form th:action="@{/best-seller}" modelAttribute="searchDto" th:object="${searchDto}" method="get"
+                          th:style="'width:100%;padding:15px'">
+                        <div class="ui action input" th:style="'width:100%'">
+                            <input placeholder="Enter user-id to list best selling products." type="text"
+                                   id="searchInput2" th:field="*{userId}">
+                            <button class="ui orange icon button" type="submit">
+                                <i class="search icon"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.5.0/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+</body>
+</html>
